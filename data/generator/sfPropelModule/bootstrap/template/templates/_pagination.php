@@ -22,7 +22,7 @@
     [?php if ($pager->getLastPage() > $page): ?]
       <li class="disabled"><a href="javascript:void(0);">…</a></li>
       <li>
-        [?php echo link_to($pager->getLastPage(), '<?php echo $this->getModuleName() ?>/list?page='.$pager->getLastPage().'&per_page='.$pager->getMaxPerPage()); ?]
+        [?php echo link_to($pager->getLastPage(), '@<?php echo $this->getUrlForAction('list') ?>?page='. $pager->getLastPage()); ?]
       </li>
     [?php endif; ?]
 

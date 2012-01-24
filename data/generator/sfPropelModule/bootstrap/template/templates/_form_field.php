@@ -27,9 +27,12 @@
       [?php if (in_array(get_class($form[$name]->getWidget()), array('sfWidgetFormInputText', 'sfWidgetFormTextarea')) && (int) $form->getValidatorSchema()->offsetGet($name)->getOption('max_length') > 0): ?]
         <span class="help-inline"><span id="counter_[?php echo $name; ?]">&nbsp;</span> characters remaining</span>
         <script type="text/javascript">
-          $('#[?php echo $form->getName().'_'. $name ?]').counter(
-            '#counter_[?php echo $name ?]', { on_negative: 'label important', max_chars: [?php echo $form->getValidatorSchema()->offsetGet($name)->getOption('max_length'); ?] }
-          );
+          $(document).ready(function()
+          {
+            $('#[?php echo $form->getName().'_'. $name ?]').counter(
+              '#counter_[?php echo $name ?]', { on_negative: 'label important', max_chars: [?php echo (int) $form->getValidatorSchema()->offsetGet($name)->getOption('max_length'); ?] }
+            );
+          });
         </script>
       [?php endif; ?]
 

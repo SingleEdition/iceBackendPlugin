@@ -301,10 +301,7 @@ class GApps_OpenID_SimpleSign {
         $this->trust_roots = $trust_roots;
         if ($this->trust_roots == null)
         {
-            $this->trust_roots = array(
-              '/etc/ssl/certs/ca-certificates.crt',
-              dirname(__FILE__)."/ca-bundle.crt"
-            );
+            $this->trust_roots = array(dirname(__FILE__)."/ca-bundle.crt");
         }
     }
 

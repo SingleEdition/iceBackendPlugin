@@ -48,20 +48,15 @@ class IceBackendUser extends sfGuardSecurityUser
 
     $response = $consumer->complete($return_to);
 
-    if ($response->status == Auth_OpenID_SUCCESS && $openId = $response->getDisplayIdentifier())
+    if ($response->status == Auth_OpenID_SUCCESS && ($openId = $response->getDisplayIdentifier()))
     {
-      if (!$user = sfGuardUserQuery::create()->findOneByUsername($openId))
+      if ($user = sfGuardUserQuery::create()->findOneByUsername($openId))
       {
-        $user = new sfGuardUser();
-        $user->setUsername($openId);
-        $user->setPassword(iceStatic::getUniquePassword());
-        $user->save();
+        // Finally set the user as authenticated
+        return $this->signIn($user);
       }
 
-      // Finally set the user as authenticated
-      $this->signIn($user);
-
-      return true;
+      return $openId;
     }
 
     return false;

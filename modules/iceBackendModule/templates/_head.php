@@ -1,13 +1,15 @@
 <?php
   ice_combine_stylesheets(array(
-    '/assets/css/bootstrap.css', '/assets/css/jquery/aristo.css', '/assets/css/jquery/checkboxes.css',
-    '/backend/css/default.css'
+    '/assets/css/bootstrap.css', '/assets/css/jquery/bootstrap.css',
+    '/assets/css/jquery/wijmo.css', '/assets/css/jquery/aristo.css',
+    '/assets/css/jquery/checkboxes.css', '/backend/css/default.css'
   ));
 ?>
 <?php ice_include_stylesheets(); ?>
 
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('jquery.js', 'assets'); ?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('jquery/ui.js', 'assets'); ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('jquery/wijmo.js', 'assets'); ?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('bootstrap/alerts.js', 'assets'); ?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('bootstrap/dropdown.js', 'assets'); ?>"></script>
 

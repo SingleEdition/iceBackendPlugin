@@ -52,7 +52,9 @@ class BaseIceBackendModuleActions extends sfActions
       $url
     );
 
-    return ($this->getUser()->completeAuthentication($url)) ? $this->redirect('@homepage') : sfView::ERROR;
+    $this->openid = $this->getUser()->completeAuthentication($url);
+
+    return ($this->openid === true) ? $this->redirect('@homepage') : sfView::ERROR;
   }
 
   public function executeError404()
