@@ -2,16 +2,55 @@
 
 class IceBackendUser extends sfGuardSecurityUser
 {
+  /**
+   * @return integer
+   */
+  public function getId()
+  {
+    /** @var $user sfGuardUser */
+    return ($user = $this->getGuardUser()) ? $user->getId() : 0;
+  }
+
+  /**
+   * @return null|string
+   */
+  public function getOpenId()
+  {
+    $id = null;
+
+    if ($this->getGuardUser())
+    {
+      if (preg_match('|http://collectorsquest.com/openid\?id=(\d+)|i', $this->getUsername(), $m))
+      {
+        $id = (string) $m[1];
+      }
+    }
+
+    return $id;
+  }
+
+  /**
+   * @return null|string
+   */
   public function getName()
   {
     return $this->getUsername();
   }
 
+  /**
+   * @return string
+   */
   public function getAvatarUrl()
   {
     return 'http://animexarchiculture.files.wordpress.com/2009/04/mystery_man.jpg';
   }
 
+  /**
+   * @param  string  $trust_url
+   * @param  string  $return_url
+   *
+   * @return string|boolean
+   */
   public function beginAuthentication($trust_url, $return_url = 'http://backend.icepique.com/openid')
   {
     $this->_doIncludes();
@@ -23,8 +62,10 @@ class IceBackendUser extends sfGuardSecurityUser
     new GApps_OpenID_Discovery($consumer);
 
     // Start the procedure...
-    $auth_request = $consumer->begin('icepique.com');
-    $redirect_url = $auth_request->redirectURL($trust_url, $return_url);
+    $auth_request = $consumer->begin(
+      sfConfig::get('app_ice_backend_google_apps_domain', parse_url($return_url, PHP_URL_HOST))
+    );
+    $redirect_url = (string) $auth_request->redirectURL($trust_url, $return_url);
 
     if (Auth_OpenID::isFailure($redirect_url))
     {
@@ -48,12 +89,14 @@ class IceBackendUser extends sfGuardSecurityUser
 
     $response = $consumer->complete($return_to);
 
-    if ($response->status == Auth_OpenID_SUCCESS && ($openId = $response->getDisplayIdentifier()))
+    if ($response->status == Auth_OpenID_SUCCESS && (null !== $openId = $response->getDisplayIdentifier()))
     {
       if ($user = sfGuardUserQuery::create()->findOneByUsername($openId))
       {
         // Finally set the user as authenticated
-        return $this->signIn($user);
+        $this->signIn($user);
+
+        return true;
       }
 
       return $openId;

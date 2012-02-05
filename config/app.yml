@@ -1,3 +1,8 @@
 all:
   ice_backend:
+    google_apps_domain: icepique.com
     default_image: icons/default.png
+
+    god_auth:
+      secret: "KMrJqQFx7fwceQper48CHPq4PaqBSQZq"
+      timeout:  3600

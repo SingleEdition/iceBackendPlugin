@@ -23,6 +23,14 @@
             <?php endif; ?>
           <?php endif; ?>
         <?php endforeach; ?>
+        <li style="float: right;">
+          <?php
+            echo link_to(
+              __('Logout'), '@ice_backend_signout',
+              array('onclick' => 'return confirm("You will be also logged out of your webmail. Are you sure you want to continue?")')
+            );
+          ?>
+        </li>
       </ul>
     </div>
   </div>

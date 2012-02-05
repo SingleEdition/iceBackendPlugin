@@ -1,9 +1,11 @@
 <?php
 
-class BaseIceBackendModuleActions extends sfActions
+class BaseIceBackendModuleActions extends IceBackendActions
 {
  /**
   * Executes the index action, which shows a list of all available modules
+  *
+  * @return string
   */
   public function executeDashboard()
   {
@@ -11,6 +13,26 @@ class BaseIceBackendModuleActions extends sfActions
     $this->categories = iceBackendModule::getCategories();
 
     return sfView::SUCCESS;
+  }
+
+  public function executeGodAuth(sfWebRequest $request)
+  {
+    list($secret, $timeout) = array_values(sfConfig::get('app_ice_backend_god_auth'));
+
+    $id = $this->getUser()->getOpenId();
+    $roles = implode(',', $this->getUser()->getGroupNames());
+
+    if (empty($roles))
+    {
+      $roles = 'guest';
+    }
+
+    $value = $id .'-'. $roles .'-'. time();
+    $cookie = $value .'-'. hash_hmac('sha1', $value .'-'. $_SERVER['HTTP_USER_AGENT'], $secret);
+
+    setcookie("ga", $cookie, time() + $timeout, "/", ".". sfConfig::get('app_domain_name'), 0, 1);
+
+    $this->redirect($request->getParameter('ref', '@homepage'));
   }
 
   public function executeSignIn()
@@ -33,16 +55,25 @@ class BaseIceBackendModuleActions extends sfActions
 
   public function executeSignOut()
   {
+    $open_id = $this->getUser()->getOpenId();
     $this->getUser()->setAuthenticated(false);
+
+    if (!empty($open_id))
+    {
+      return $this->redirect('https://mail.google.com/mail/u/0/?logout&hl=en');
+    }
 
     return $this->redirect('@homepage');
   }
 
+  /**
+   * @return string|void
+   */
   public function executeOpenId()
   {
     if ($this->getUser()->isAuthenticated())
     {
-      return $this->redirect('@homepage');
+      $this->redirect('@homepage');
     }
 
     $url = $this->generateUrl('ice_backend_openid', array(), true);
@@ -57,11 +88,17 @@ class BaseIceBackendModuleActions extends sfActions
     return ($this->openid === true) ? $this->redirect('@homepage') : sfView::ERROR;
   }
 
+  /**
+   * @return string
+   */
   public function executeError404()
   {
     return sfView::SUCCESS;
   }
 
+  /**
+   * @return string
+   */
   public function executeError500()
   {
     return sfView::SUCCESS;

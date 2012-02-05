@@ -2,6 +2,7 @@
 
 class BaseIceBackendModuleComponents extends sfComponents
 {
+
   /**
   * The main navigation component for the iceBackendModule plugin
   */
