@@ -26,7 +26,7 @@
       </h1>
     </div>
     [?php if ($pager->haveToPaginate()): ?]
-    <div class="span5">
+    <div class="span5 pull-right">
       [?php include_partial('<?php echo $this->getModuleName() ?>/pagination_basic', array('pager' => $pager)) ?]
     </div>
     [?php endif; ?]
@@ -38,11 +38,11 @@
   <?php endif; ?>
     [?php include_partial('<?php echo $this->getModuleName() ?>/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?]
     <div class="row">
-      <div class="span10" style="text-align: left;">
+      <div class="span6">
         &nbsp;
         [?php include_partial('<?php echo $this->getModuleName() ?>/list_batch_actions', array('helper' => $helper)) ?]
       </div>
-      <div class="span10" style="text-align: right;">
+      <div class="span2 pull-right">
         &nbsp;
         [?php include_partial('<?php echo $this->getModuleName() ?>/list_actions', array('helper' => $helper)) ?]
       </div>
@@ -50,11 +50,11 @@
     [?php if ($pager->haveToPaginate()): ?]
       <hr/>
       <div class="row">
-        <div class="span9" style="font-size: 230%;">
+        <div class="span5" style="font-size: 230%;">
           <strong>[?php echo format_number_choice('[0] no result|[1] 1 result|(1,+Inf] %1% results', array('%1%' => $pager->getNbResults()), $pager->getNbResults(), 'ice_backend_plugin') ?]</strong>
           [?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'ice_backend_plugin') ?]
         </div>
-        <div class="span11">
+        <div class="span7 pull-right">
           [?php include_partial('<?php echo $this->getModuleName() ?>/pagination', array('pager' => $pager)) ?]
         </div>
       </div>

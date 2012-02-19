@@ -2,7 +2,7 @@
   [?php if (!$pager->getNbResults()): ?]
     <p>[?php echo __('No result', array(), 'ice_backend_plugin') ?]</p>
   [?php else: ?]
-    <table class="bordered-table zebra-striped">
+    <table class="table table-bordered table-striped">
       <thead>
         <tr>
         <?php if ($this->configuration->getValue('list.batch_actions')): ?>

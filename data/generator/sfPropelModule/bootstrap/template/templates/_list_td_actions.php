@@ -1,6 +1,6 @@
 <td>
-  <div class="dropdown" data-dropdown="dropdown" style="white-space: nowrap;">
-    <a href="#" class="btn dropdown-toggle select-cog">Actions</a>
+  <div class="btn-group" style="white-space: nowrap;">
+    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">Actions<span class="caret"></span></a>
     <ul class="dropdown-menu">
       <?php foreach ($this->configuration->getValue('list.object_actions') as $name => $params): ?>
       <?php if ('_delete' == $name): ?>

@@ -1,5 +1,6 @@
 <?php
   ice_combine_stylesheets(array(
+    '/assets/css/h5bp.css',
     '/assets/css/bootstrap.css', '/assets/css/jquery/bootstrap.css',
     '/assets/css/jquery/wijmo.css', '/assets/css/jquery/aristo.css',
     '/assets/css/jquery/checkboxes.css', '/backend/css/default.css'
