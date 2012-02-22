@@ -1,9 +1,11 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <?php
   ice_combine_stylesheets(array(
-    '/assets/css/h5bp.css',
-    '/assets/css/bootstrap.css', '/assets/css/jquery/bootstrap.css',
-    '/assets/css/jquery/wijmo.css', '/assets/css/jquery/aristo.css',
-    '/assets/css/jquery/checkboxes.css', '/backend/css/default.css'
+    '/backend/css/h5bp.css', '/backend/css/bootstrap.css', '/backend/css/responsive.css',
+    '/assets/css/jquery/bootstrap.css', '/assets/css/jquery/wijmo.css',
+    '/assets/css/jquery/aristo.css', '/assets/css/jquery/checkboxes.css',
+    '/backend/css/default.css'
   ));
 ?>
 <?php ice_include_stylesheets(); ?>

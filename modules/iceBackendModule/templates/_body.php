@@ -16,8 +16,8 @@
 
 <?php include_partial('iceBackendModule/menu', array('items' => $items, 'categories' => $categories)); ?>
 
-<div class="container">
-  <div class="content">
+<div class="container-fluid">
+  <div class="row-fluid content">
 
     <ul class="breadcrumb">
       <li><a href='<?php echo url_for('@homepage'); ?>'><?php echo iceBackendModule::getProperty('site', 'Dashboard'); ?></a></li>
