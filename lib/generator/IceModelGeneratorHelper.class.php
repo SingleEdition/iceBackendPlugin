@@ -61,4 +61,9 @@ abstract class IceModelGeneratorHelper extends sfModelGeneratorHelper
     return '<li class="sf_admin_action_save_and_add"><input type="submit" class="btn" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" /></li>';
   }
 
+  public function linkToAction($actionName, $params, $pk_link = false)
+  {
+    return '<li class="sf_admin_action_'.$actionName.'">'.$this->getLinkToAction($actionName, $params, $pk_link).'</li>';
+  }
+
 }
