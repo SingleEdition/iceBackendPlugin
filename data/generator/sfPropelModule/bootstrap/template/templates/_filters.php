@@ -2,7 +2,7 @@
 [?php use_javascripts_for_form($form) ?]
 
 <a name="filters"></a>
-<div class="sf_admin_filter">
+<div class="sf_admin_filter accordion-body in collapse" style="height: auto;">
   [?php if ($form->hasGlobalErrors()): ?]
   <div class="alert alert-block error">
     <p><strong>Oh snap! You got an error!</strong> Change this and that and <a href="#">try again</a>.</p>
@@ -10,7 +10,8 @@
   </div>
   [?php endif; ?]
 
-  <h2>Filters <small>for [?php echo <?php echo $this->getI18NString('list.title') ?> ?]</small></h2>
+  <h2>Filters <small>for [?php echo <?php echo $this->getI18NString('list.title') ?> ?]</h2>
+
   <form action="[?php echo url_for('<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter')) ?]" method="post" class="well well-reset-paggination form-horizontal">
     <div class="row-fluid">
       <div class="span6">

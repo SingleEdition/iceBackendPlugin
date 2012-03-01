@@ -33,6 +33,12 @@
           </li>
         <?php endif ?>
       <?php endif; ?>
+      <li id="btn-filters" style="display: none; float: right; margin: -5px; margin-right: -11px;">
+        <a class="btn btn-primary accordion-toggle" data-toggle="collapse" href=".sf_admin_filter" style="color: white;">
+          <i class="icon-search icon-white"></i>
+          Show/Hide Filters
+        </a>
+      </li>
     </ul>
 
     <?php echo $content; ?>

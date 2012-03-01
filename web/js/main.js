@@ -2,7 +2,16 @@ $(document).ready(function()
 {
   $('#topbar').dropdown();
   $('div.dropdown').dropdown();
-  $('.alert-message').alert('close');
+  $('.alert').alert('close');
+
+  $('.sf_admin_filter').collapse({
+    toggle: false
+  });
+
+  $('.sf_admin_filter').ready(function()
+  {
+    $('#btn-filters').show();
+  });
 
   // Setting some global jQuery ajax options
   $.ajaxSetup(
