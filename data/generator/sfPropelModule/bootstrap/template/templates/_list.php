@@ -10,7 +10,7 @@
         <?php endif; ?>
           [?php include_partial('<?php echo $this->getModuleName() ?>/list_th_<?php echo $this->configuration->getValue('list.layout') ?>', array('sort' => $sort)) ?]
         <?php if ($this->configuration->getValue('list.object_actions')): ?>
-          <th id="sf_admin_list_th_actions" style="width: 80px;">[?php echo __('Actions', array(), 'ice_backend_plugin') ?]</th>
+          <th id="sf_admin_list_th_actions" style="width: 80px;border:1 px solid green">[?php echo __('Actions', array(), 'ice_backend_plugin') ?]</th>
         <?php endif; ?>
         </tr>
       </thead>

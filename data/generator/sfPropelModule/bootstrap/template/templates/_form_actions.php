@@ -1,4 +1,4 @@
-<div class="well" style="padding: 10px 15px;">
+<div class="well" style="background-color: red">
   <ul class="sf_admin_actions">
 <?php foreach (array('new', 'edit') as $action): ?>
 <?php if ('new' == $action): ?>

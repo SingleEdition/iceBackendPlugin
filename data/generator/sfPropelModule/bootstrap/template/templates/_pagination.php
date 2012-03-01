@@ -1,4 +1,4 @@
-<div class="pagination pagination-right">
+<div class="pagination pagination-right margin-0">    
   <ul>
     <li class="prev [?php echo ($pager->getPage() == 1) ? 'disabled' : null; ?]">
       <a href="[?php echo url_for('@<?php echo $this->getUrlForAction('list') ?>') ?]?page=1">
