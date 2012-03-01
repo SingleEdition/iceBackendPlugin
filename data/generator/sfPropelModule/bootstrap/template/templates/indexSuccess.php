@@ -12,8 +12,8 @@
   [?php include_partial('<?php echo $this->getModuleName() ?>/filters', array('form' => $filters, 'configuration' => $configuration)) ?]
   <?php endif; ?>
 
-  <div class="row">
-    <div class="span6">
+  <div class="row-fluid">
+    <div class="span8">
       <h1>
         [?php echo <?php echo $this->getI18NString('list.title') ?> ?]
         <small>
@@ -25,37 +25,42 @@
         </small>
       </h1>
     </div>
-    [?php if ($pager->haveToPaginate()): ?]
-    [?php include_partial('<?php echo $this->getModuleName() ?>/pagination_basic', array('pager' => $pager)) ?]
-    [?php endif; ?]
+    <div class="span4">
+      [?php if ($pager->haveToPaginate()): ?]
+      [?php include_partial('<?php echo $this->getModuleName() ?>/pagination_basic', array('pager' => $pager)) ?]
+      [?php endif; ?]
+    </div>
   </div>
+  <br />
 
   <div id="sf_admin_content">
     <?php if ($this->configuration->getValue('list.batch_actions')): ?>
     <form action="[?php echo url_for('<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'batch')) ?]" method="post">
   <?php endif; ?>
     [?php include_partial('<?php echo $this->getModuleName() ?>/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?]
-    <div class="row">
-      <div class="span6">
-        &nbsp;
+    <div class="row-fluid">
+      <div class="span7">
         [?php include_partial('<?php echo $this->getModuleName() ?>/list_batch_actions', array('helper' => $helper)) ?]
       </div>
-      <div class="pull-right">
-        &nbsp;
-        [?php include_partial('<?php echo $this->getModuleName() ?>/list_actions', array('helper' => $helper)) ?]
+      <div class="span5">
+        <div class="pull-right">
+          [?php include_partial('<?php echo $this->getModuleName() ?>/list_actions', array('helper' => $helper)) ?]
+        </div>
       </div>
     </div>
     [?php if ($pager->haveToPaginate()): ?]
     <hr />
-    <div class="row">
-      <div class="span5">
+    <div class="row-fluid">
+      <div class="span4">
         <h1>
           <small>[?php echo format_number_choice('[0] no result|[1] 1 result|(1,+Inf] %1% results', array('%1%' => $pager->getNbResults()), $pager->getNbResults(), 'ice_backend_plugin') ?]
             [?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'ice_backend_plugin') ?]
           </small>
         </h1>
       </div>
-      [?php include_partial('<?php echo $this->getModuleName() ?>/pagination', array('pager' => $pager)) ?]
+      <div class="span8">
+        [?php include_partial('<?php echo $this->getModuleName() ?>/pagination', array('pager' => $pager)) ?]
+      </div>
     </div>
     [?php endif; ?]
     <?php if ($this->configuration->getValue('list.batch_actions')): ?>
