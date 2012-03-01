@@ -104,3 +104,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .cpanel div.icon img { margin-top: 13px; }
 .cpanel div.icon span { display: block; padding-top: 3px;}
+
+
+.sf_admin_date select {
+   width: auto;
+   padding: 4px;
+   margin-left: 4px;
+   margin-right: 4px;
+}
+
