@@ -3,13 +3,13 @@
   <?php foreach ($actions as $name => $params): ?>
   <?php if ('_new' == $name): ?>
     <?php
-    $params['params'] = array_merge(array('class' => 'btn primary btn-success'), $params['params']);
+    $params['params'] = array_merge(array('class' => 'btn btn-primary btn-success'), $params['params']);
     echo $this->addCredentialCondition('[?php echo $helper->linkToNew(' . $this->asPhp($params) . ') ?]', $params) . "\n"
     ?>
     <?php else: ?>
     <li class="sf_admin_action_<?php echo $name ?>">
       <?php
-      $params['params'] = array_merge(array('class' => 'btn primary'), $params['params']);
+      $params['params'] = array_merge(array('class' => 'btn btn-primary'), $params['params']);
       echo $this->addCredentialCondition($this->getLinkToAction($name, $params, false), $params) . "\n"
       ?>
     </li>

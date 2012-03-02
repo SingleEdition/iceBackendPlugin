@@ -1,4 +1,4 @@
-<div class="well" style="background-color: red">
+<div class="well" style="padding: 10px;">
   <ul class="sf_admin_actions">
 <?php foreach (array('new', 'edit') as $action): ?>
 <?php if ('new' == $action): ?>
@@ -9,7 +9,7 @@
 <?php foreach ($this->configuration->getValue($action.'.actions') as $name => $params): ?>
 <?php if ('_delete' == $name): ?>
   <?php
-    $params['params'] = array_merge(array('class' => 'btn danger', 'style' => 'float: right;'), $params['params']);
+    $params['params'] = array_merge(array('class' => 'btn btn-danger', 'style' => 'float: right;'), $params['params']);
     echo $this->addCredentialCondition('[?php echo $helper->linkToDelete($form->getObject(), '.$this->asPhp($params).') ?]', $params);
   ?>
 

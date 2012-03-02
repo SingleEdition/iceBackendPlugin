@@ -10,6 +10,8 @@
   [?php $form = new BaseForm(); if ($form->isCSRFProtected()): ?]
     <input type="hidden" name="[?php echo $form->getCSRFFieldName() ?]" value="[?php echo $form->getCSRFToken() ?]" />
   [?php endif; ?]
-  <input type="submit" class="btn primary" value="[?php echo __('Perform Action', array(), 'ice_backend_plugin') ?]" />
+  <input type="submit" class="btn btn-primary" value="[?php echo __('Perform Action', array(), 'ice_backend_plugin') ?]" />
+  <?php else: ?>
+    &nbsp;
   <?php endif; ?>
 </div>

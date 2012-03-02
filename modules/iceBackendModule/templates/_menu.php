@@ -12,12 +12,15 @@
         <?php echo sfConfig::get('app_ice_backend_site', 'Backend'); ?>
       </a>
       <ul class="nav">
-        <li><a href="/">Dashboard</a></li>
+        <li><a href="/"><i class="icon-home icon-white"></i>&nbsp;Dashboard</a></li>
         <?php foreach ($categories as $name => $category): ?>
         <?php if (iceBackendModule::hasPermission($category, $sf_user)): ?>
           <?php if (iceBackendModule::hasItemsMenu($category['items'])): ?>
             <li class="dropdown">
-              <a href="#nogo" data-toggle="dropdown" class="dropdown-toggle"><?php echo isset($category['name']) ? $category['name'] : $name ?><span class="caret"></span></a>
+              <a href="#nogo" data-toggle="dropdown" class="dropdown-toggle">
+                <?php echo (!empty($category['icon'])) ? '<i class="icon-'. $category['icon'] .' icon-white"></i>' : ''; ?>
+                <?php echo isset($category['name']) ? $category['name'] : $name ?><span class="caret"></span>
+              </a>
               <?php include_partial('iceBackendModule/menu_list', array(
               'items'         => $category['items'],
               'items_in_menu' => true
@@ -28,10 +31,10 @@
         <?php endforeach; ?>
       </ul>
       <ul class="nav pull-right">
-        <li> 
+        <li>
           <?php
             echo link_to(
-            __('Logout'), '@ice_backend_signout',
+            '<i class="icon-lock icon-white"></i>&nbsp;'.__('Logout'), '@ice_backend_signout',
             array('onclick' => 'return confirm("You will be also logged out of your webmail. Are you sure you want to continue?")')
             );
             ?>
