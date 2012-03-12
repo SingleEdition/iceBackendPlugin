@@ -1,0 +1,3 @@
+[submodule "web/less/bootstrap"]
+	path = web/less/bootstrap
+	url = git@github.com:CollectorsQuest/bootstrap.git
