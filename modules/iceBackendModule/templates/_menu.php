@@ -7,7 +7,7 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
       <a class="brand" href='<?php echo url_for('homepage') ?>'>
         <?php echo sfConfig::get('app_ice_backend_site', 'Backend'); ?>
       </a>
