@@ -21,9 +21,6 @@ def watchr2
   css  = web + "/css/bootstrap.css"
   plessc less, css, web
 
-  less = web + "/less/bootstrap/less/responsive.less"
-  css  = web + "/css/responsive.css"
-  plessc less, css, web
 end
 
 # --------------------------------------------------

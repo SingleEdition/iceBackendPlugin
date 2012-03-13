@@ -1,0 +1,176 @@
+/* Override some defaults */
+html, body {
+  background-color: #eee;
+}
+
+body {
+  padding-top: 40px;
+}
+
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+
+/* The white background content wrapper */
+.content {
+  width:95%; *zoom:1;
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 auto;
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Page header tweaks */
+.page-header {
+  background-color: #f5f5f5;
+  padding: 20px 20px 10px;
+  margin: -20px -20px 20px;
+}
+
+.topbar .btn {
+  border: 0;
+}
+
+.zebra-striped tbody tr:hover td,
+.zebra-striped tbody tr:hover th {
+  background-color: #ffffcc;
+}
+
+.zebra-striped thead tr {
+  background: url("/backend/images/background.jpg") repeat scroll 0 0 transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #C64934;
+}
+
+/**
+ * Theme
+ */
+
+#sf_admin_container ul.sf_admin_actions
+{
+  margin: 0;
+  list-style-type: none;
+}
+
+#sf_admin_container ul.sf_admin_actions li
+{
+  list-style-type: none;
+  display: inline;
+  margin-right: 10px;
+}
+
+/**
+ * Dashboard
+ */
+
+.cpanel
+{
+  text-align: center;  vertical-align: middle;
+  padding: 2px 2px 5px 2px;
+  margin-bottom: 20px;
+}
+
+.cpanel div.icon   { margin: 3px; }
+.cpanel div.icon a {
+  display: block; float: left;
+  color: #333 !important;
+  height: 97px !important;
+  height: 100px;
+  width: 108px !important;
+  width: 110px;
+  vertical-align: middle;
+  text-decoration : none;
+  border: 1px solid #DDD;
+  padding: 2px 5px 1px 5px;
+}
+
+.cpanel div.icon a:link    {  color : #808080;  }
+.cpanel div.icon a:hover   {
+  color : #333;
+  background-color: #f1e8e6;
+  text-decoration: none !important;
+  border: 1px solid #c24733;
+  padding: 3px 4px 0px 6px;
+}
+.cpanel div.icon a:active  {  color : #808080;  }
+.cpanel div.icon a:visited {  color : #808080;  }
+
+.cpanel div.icon img { margin-top: 13px; }
+.cpanel div.icon span { display: block; padding-top: 3px;}
+
+
+.sf_admin_date select {
+   width: auto;
+   padding: 4px;
+   margin-left: 4px;
+   margin-right: 4px;
+}
+
+
+
+// BACKEND CUSTOM CLASSES
+// ---------------
+
+// MENU
+.container-fluid {
+  max-width: 1200px;
+  min-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  max-width: 1180px;
+  min-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Fixes paginations margins
+//logo
+.navbar .brand {
+  padding: 8px 10px 12px;
+}
+
+.navbar .nav > li > a {
+  padding: 10px 5px 11px;
+}
+
+.well-reset-paggination{
+  padding: 18px 0 0 0;
+}
+.well-margins {
+  margin-top: 26px;
+}
+
+
+//RESETS
+.padding-0 {
+  padding: 0;
+}
+.margin-0 {
+  margin: 0;
+}
+.form-actions-fix-posiotion {
+ margin-top: 0;
+ padding-bottom:0;
+}
+
+.sf_admin_form_field_photo label {
+  margin-bottom: 0;
+}
+
+.sf_admin_form_field_has_cqnext_access {
+  padding-top:9px;
+}
+.sf_admin_form .help-block {
+  display: block; // account for any element using help-block
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
