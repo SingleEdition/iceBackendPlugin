@@ -52,7 +52,7 @@
         </fieldset>
       </div> <!-- .span6 -->
     </div> <!-- .row-fluid -->
-    <div class="form-actions bottom-p-0">
+    <div class="form-actions form-actions-fix-posiotion">
       [?php echo $form->renderHiddenFields() ?]
       <button type="submit" class="btn btn-primary">[?php echo __('Filter', array(), 'ice_backend_plugin') ?]</button>
       [?php echo link_to(__('Reset', array(), 'ice_backend_plugin'), '<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post', 'class' => 'btn')) ?]
