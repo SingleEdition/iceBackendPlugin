@@ -56,4 +56,10 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return <?php echo $this->asPhp(isset($this->config['list']['query_methods']) ? $this->config['list']['query_methods'] : array()) ?>;
 <?php unset($this->config['list']['query_methods']) ?>
   }
+
+  public function hasExporting()
+  {
+    return true;
+  }
+
 }

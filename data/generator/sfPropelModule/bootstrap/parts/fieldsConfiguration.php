@@ -64,6 +64,16 @@
 <?php unset($this->config['list']['display'], $this->config['list']['hide']) ?>
   }
 
+  public function getExportDisplay()
+  {
+<?php if (isset($this->config['export']['display'])): ?>
+    return <?php echo $this->asPhp($this->config['export']['display']) ?>;
+<?php else: ?>
+    return <?php echo $this->asPhp($this->getAllFieldNames(false)) ?>;
+<?php endif; ?>
+<?php unset($this->config['export']['display']) ?>
+  }
+
   public function getFieldsDefault()
   {
     return array(
@@ -73,7 +83,7 @@
     );
   }
 
-<?php foreach (array('list', 'filter', 'form', 'edit', 'new') as $context): ?>
+<?php foreach (array('list', 'filter', 'form', 'edit', 'new', 'export') as $context): ?>
   public function getFields<?php echo ucfirst($context) ?>()
   {
     return array(

@@ -60,4 +60,8 @@ abstract class <?php echo $this->getGeneratedModuleName() ?>Actions extends <?ph
 
 <?php include dirname(__FILE__).'/../../parts/moveDownAction.php' ?>
 <?php endif ?>
+
+<?php if ($this->configuration->hasExporting()): ?>
+<?php include dirname(__FILE__) . '/../../parts/exportAction.php' ?>
+<?php endif; ?>
 }

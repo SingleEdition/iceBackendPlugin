@@ -17,6 +17,11 @@
     return $this->getUser()->getAttribute('<?php echo $this->getModuleName() ?>.page', 1, 'admin_module');
   }
 
+  /**
+   * Build criteria query
+   *
+   * @return ModelCriteria
+   */
   protected function buildQuery()
   {
 <?php if ($this->configuration->hasFilterForm()): ?>
