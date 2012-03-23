@@ -6,15 +6,16 @@
 
     sfConfig::set('sf_web_debug', false);
 
+    $this->response->setHttpHeader('Expires', 0);
+    $this->response->setHttpHeader('Cache-control', 'private');
+    $this->response->setHttpHeader('Cache-Control', 'private, must-revalidate, post-check=0, pre-check=0');
+    $this->response->setHttpHeader('Content-Description', 'File Transfer');
+    $this->response->setHttpHeader('Content-disposition', 'attachment; filename=' . $fileName);
+
     switch ($request->getParameter('sf_format'))
     {
       case 'csv':
-        $this->response->setHttpHeader('Expires', 0);
-        $this->response->setHttpHeader('Cache-control', 'private');
-        $this->response->setHttpHeader('Cache-Control', 'private, must-revalidate, post-check=0, pre-check=0');
-        $this->response->setHttpHeader('Content-Description', 'File Transfer');
         $this->response->setHttpHeader('Content-Type', 'text/csv, charset=UTF-8; encoding=UTF-8');
-        $this->response->setHttpHeader('Content-disposition', 'attachment; filename=' . $fileName);
       break;
 
       case 'xml':
@@ -44,5 +45,7 @@
     }
 
     $paginateMethod = $this->configuration->getPaginateMethod();
-    $this->pager = $this->criteria->$paginateMethod($this->getPage(), $this->configuration->getPagerMaxPerPage());
+    $this->pager = $this->criteria->$paginateMethod($this->getPage(), 0);
+    $this->pager->setMaxPerPage(false);
+    $this->pager->setMaxRecordLimit(false);
   }
