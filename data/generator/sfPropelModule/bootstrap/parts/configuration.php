@@ -57,9 +57,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 <?php unset($this->config['list']['query_methods']) ?>
   }
 
-  public function hasExporting()
-  {
-    return true;
-  }
+<?php include dirname(__FILE__).'/exportConfiguration.php' ?>
 
 }

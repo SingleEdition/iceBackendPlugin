@@ -82,16 +82,17 @@ class IcePropelGenerator extends sfPropelGenerator
     }
     catch (PropelException $e)
     {
+      // not a real column
       if ('count' == substr($column, 0, 5))
       {
         $prefix = '';
+        $getter = lcfirst(sfInflector::camelize($column));
       }
       else
       {
         $prefix = 'get';
+        $getter = $prefix.sfInflector::camelize($column);
       }
-      // not a real column
-      $getter = $prefix.sfInflector::camelize($column);
     }
 
     if (!$developed)

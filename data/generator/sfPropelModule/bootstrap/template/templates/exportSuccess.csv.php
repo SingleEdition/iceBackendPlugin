@@ -1,3 +1,4 @@
+[?php /* @var $<?php echo $this->getSingularName() ?> <?php echo $this->getSingularName() ?> */ ?]
 <?php /* Labels */ ?>
 [?php $labels = array(
 <?php foreach ($this->configuration->getValue('export.display') as $name=> $field): ?>
