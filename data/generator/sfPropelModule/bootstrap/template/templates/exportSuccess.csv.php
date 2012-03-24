@@ -1,7 +1,7 @@
 <?php /* Labels */ ?>
 [?php $labels = array(
 <?php foreach ($this->configuration->getValue('export.display') as $name=> $field): ?>
-'<?php echo $name; ?>',
+'<?php echo $field->getConfig('label', '', true); ?>',
 <?php endforeach; ?>
 ); echo implode(',', $labels), "\n";
 ?]
