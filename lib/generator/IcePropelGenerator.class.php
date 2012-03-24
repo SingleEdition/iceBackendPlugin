@@ -88,6 +88,16 @@ class IcePropelGenerator extends sfPropelGenerator
         $prefix = '';
         $getter = lcfirst(sfInflector::camelize($column));
       }
+      else if (false !== strpos($column, '.'))
+      {
+        $prefix = '';
+        $parts = array();
+        foreach (explode('.', $column) as $subgetter)
+        {
+          $parts[] = 'get' . sfInflector::camelize($subgetter);
+        }
+        $getter = implode('()->', $parts);
+      }
       else
       {
         $prefix = 'get';
