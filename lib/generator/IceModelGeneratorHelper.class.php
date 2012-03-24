@@ -68,9 +68,9 @@ abstract class IceModelGeneratorHelper extends sfModelGeneratorHelper
 
   public function linkToExport($params)
   {
-    $sf_format = @$params['sf_format'] ?: 'csv';
+    $sf_format = isset($params['sf_format']) ? $params['sf_format'] : 'csv';
 
-    return '<li class="sf_admin_action_export_'.$params['sf_format'].'">'. link_to2(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('export'), array('sf_format'=>$sf_format), $params['params']) .'</li>';
+    return '<li class="sf_admin_action_export_'.$sf_format.'">'. link_to2(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('export'), array('sf_format'=>$sf_format), $params['params']) .'</li>';
   }
 
 }
