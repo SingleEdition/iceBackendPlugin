@@ -8,7 +8,7 @@
  * @author     ##AUTHOR_NAME##
  * @version    SVN: $Id: configuration.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends sfModelGeneratorConfiguration
+abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends IceModelGeneratorConfiguration
 {
 <?php include dirname(__FILE__) . '/actionsConfiguration.php' ?>
 
@@ -56,4 +56,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return <?php echo $this->asPhp(isset($this->config['list']['query_methods']) ? $this->config['list']['query_methods'] : array()) ?>;
 <?php unset($this->config['list']['query_methods']) ?>
   }
+
+<?php include dirname(__FILE__).'/exportConfiguration.php' ?>
+
 }

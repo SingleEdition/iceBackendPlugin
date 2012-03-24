@@ -65,4 +65,52 @@ class IcePropelGenerator extends sfPropelGenerator
     return $html;
   }
 
+  /**
+   * Returns the getter either non-developped: 'getFoo' or developped: '$class->getFoo()'.
+   *
+   * @param string  $column     The column name
+   * @param boolean $developed  true if you want developped method names, false otherwise
+   * @param string  $prefix     The prefix value
+   *
+   * @return string PHP code
+   */
+  public function getColumnGetter($column, $developed = false, $prefix = '')
+  {
+    try
+    {
+      $getter = 'get'.call_user_func(array(constant($this->getModelClass().'::PEER'), 'translateFieldName'), $column, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_PHPNAME);
+    }
+    catch (PropelException $e)
+    {
+      // not a real column
+      if ('count' == substr($column, 0, 5))
+      {
+        $prefix = '';
+        $getter = lcfirst(sfInflector::camelize($column));
+      }
+      else if (false !== strpos($column, '.'))
+      {
+        $prefix = '';
+        $parts = array();
+        foreach (explode('.', $column) as $subgetter)
+        {
+          $parts[] = 'get' . sfInflector::camelize($subgetter);
+        }
+        $getter = implode('()->', $parts);
+      }
+      else
+      {
+        $prefix = 'get';
+        $getter = $prefix.sfInflector::camelize($column);
+      }
+    }
+
+    if (!$developed)
+    {
+      return $getter;
+    }
+
+    return sprintf('$%s%s->%s()', $prefix, $this->getSingularName(), $getter);
+  }
+
 }
