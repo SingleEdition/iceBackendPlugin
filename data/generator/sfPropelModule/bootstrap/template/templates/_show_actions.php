@@ -1,6 +1,6 @@
 [?php /* @var $helper Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper */ ?]
 <?php if ($actions = $this->configuration->getValue('show.actions')): ?>
-<ul class="sf_admin_actions">
+<ul class="sf_admin_actions form-actions">
   <?php foreach ($actions as $name => $params): ?>
   <?php switch ($name):
     case '_new':
