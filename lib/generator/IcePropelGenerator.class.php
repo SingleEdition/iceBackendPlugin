@@ -26,6 +26,11 @@ class IcePropelGenerator extends sfPropelGenerator
     else return array();
   }
 
+  public function hasShowAction()
+  {
+    return isset($this->params['with_show']) && true == $this->params['with_show'];
+  }
+
   /**
    * Returns HTML code for a field.
    *
@@ -60,7 +65,7 @@ class IcePropelGenerator extends sfPropelGenerator
 
     if ($field->isLink())
     {
-      $html = sprintf("link_to(%s, '%s', \$%s)", $html, $this->getUrlForAction((isset($this->params['with_show']) && true == $this->params['with_show']) ? 'show' : 'edit'), $this->getSingularName());
+      $html = sprintf("link_to(%s, '%s', \$%s)", $html, $this->getUrlForAction($this->hasShowAction() ? 'show' : 'edit'), $this->getSingularName());
     }
 
     return $html;
