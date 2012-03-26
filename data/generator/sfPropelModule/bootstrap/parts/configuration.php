@@ -58,5 +58,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
   }
 
 <?php include dirname(__FILE__).'/exportConfiguration.php' ?>
+<?php include dirname(__FILE__).'/showConfiguration.php' ?>
 
 }
