@@ -2,6 +2,7 @@
 
 class IcePropelGenerator extends sfPropelGenerator
 {
+
   /**
    * Gets extra parameters
    *
@@ -10,22 +11,22 @@ class IcePropelGenerator extends sfPropelGenerator
    */
   public function getExtra($value = false)
   {
-		if (isset($this->params['extra']))
-		{
-			if ($value)
-			{
-				foreach ($this->params['extra'] as $val)
-				{
-					if ($val == $value) return true;
-				}
-				return false;
-			}
-			else return $this->params['extra'];
-		}
-		else return array();
+    if (isset($this->params['extra']))
+    {
+      if ($value)
+      {
+        foreach ($this->params['extra'] as $val)
+        {
+          if ($val == $value) return true;
+        }
+        return false;
+      }
+      else return $this->params['extra'];
+    }
+    else return array();
   }
 
-	/**
+  /**
    * Returns HTML code for a field.
    *
    * @param sfModelGeneratorConfigurationField $field The field
@@ -59,7 +60,7 @@ class IcePropelGenerator extends sfPropelGenerator
 
     if ($field->isLink())
     {
-			$html = sprintf("link_to(%s, '%s', \$%s)", $html, $this->getUrlForAction(($this->getExtra('show') == true)?'show':'edit'), $this->getSingularName());
+      $html = sprintf("link_to(%s, '%s', \$%s)", $html, $this->getUrlForAction((isset($this->params['with_show']) && true == $this->params['with_show']) ? 'show' : 'edit'), $this->getSingularName());
     }
 
     return $html;
@@ -78,7 +79,7 @@ class IcePropelGenerator extends sfPropelGenerator
   {
     try
     {
-      $getter = 'get'.call_user_func(array(constant($this->getModelClass().'::PEER'), 'translateFieldName'), $column, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_PHPNAME);
+      $getter = 'get' . call_user_func(array(constant($this->getModelClass() . '::PEER'), 'translateFieldName'), $column, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_PHPNAME);
     }
     catch (PropelException $e)
     {
@@ -101,7 +102,7 @@ class IcePropelGenerator extends sfPropelGenerator
       else
       {
         $prefix = 'get';
-        $getter = $prefix.sfInflector::camelize($column);
+        $getter = $prefix . sfInflector::camelize($column);
       }
     }
 
