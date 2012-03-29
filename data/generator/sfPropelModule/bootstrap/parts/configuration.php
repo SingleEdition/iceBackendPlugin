@@ -10,7 +10,7 @@
  */
 abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends IceModelGeneratorConfiguration
 {
-<?php include dirname(__FILE__) . '/actionsConfiguration.php' ?>
+<?php include dirname(__FILE__).'/actionsConfiguration.php' ?>
 
 <?php include dirname(__FILE__).'/fieldsConfiguration.php' ?>
 

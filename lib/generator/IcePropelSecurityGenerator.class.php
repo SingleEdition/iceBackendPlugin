@@ -12,6 +12,9 @@ class IcePropelSecurityGenerator extends sfPropelGenerator
    * Validates the basic structure of the parameters.
    *
    * @param array $params An array of parameters
+   *
+   * @return array|void
+   * @throws sfException
    */
   protected function validateParameters($params)
   {
@@ -108,8 +111,8 @@ class IcePropelSecurityGenerator extends sfPropelGenerator
    *
    * @param string $action
    * @param string $params
-   * @return $params - the parameters with fixed credentials
-   * @author Brent Shaffer
+   *
+   * @return array|string $params - the parameters with fixed credentials
    */
   protected function fixActionCredentials($action, $params)
   {
