@@ -3,12 +3,15 @@
 <?php
   ice_combine_stylesheets(array(
     '/backend/css/h5bp.css', '/backend/css/bootstrap.css', '/backend/css/responsive.css',
-    '/assets/css/jquery/bootstrap.css', '/assets/css/jquery/wijmo.css',
-    '/assets/css/jquery/aristo.css', '/assets/css/jquery/checkboxes.css',
+    '/assets/css/jquery/bootstrap.css', '/assets/css/jquery/checkboxes.css',
     '/backend/css/default.css'
   ));
+
+  if (SF_ENV === 'prod')
+  {
+    ice_include_stylesheets();
+  }
 ?>
-<?php ice_include_stylesheets(); ?>
 
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('jquery.js', 'assets'); ?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?= ice_cdn_javascript_src('jquery/ui.js', 'assets'); ?>"></script>

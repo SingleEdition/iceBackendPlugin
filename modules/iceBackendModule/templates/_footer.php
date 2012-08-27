@@ -3,10 +3,15 @@
 <?php
 
 ice_combine_javascripts(array(
-  '/assets/js/jquery/counter.js', '/assets/js/jquery/targets.js', '/assets/js/jquery/checkboxes.js', '/backend/js/main.js'
+  '/assets/js/jquery/counter.js', '/assets/js/jquery/targets.js',
+  '/assets/js/jquery/checkboxes.js', '/backend/js/main.js'
 ));
 
-ice_include_javascripts();
+if (SF_ENV === 'prod')
+{
+  ice_include_javascripts();
+}
+
 
 // Output the javascripts for the page
 ice_echo_javascripts();
