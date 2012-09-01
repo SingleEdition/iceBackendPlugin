@@ -1,4 +1,5 @@
 [?php /* @var $<?php echo $this->getSingularName() ?> <?php echo $this->getSingularName() ?> */ ?]
+[?php use_helper('I18N', 'Date') ?]
 <?php /* Labels */ ?>
 [?php $labels = array(
 <?php foreach ($this->configuration->getValue('export.display') as $name=> $field): ?>
@@ -10,7 +11,7 @@
 [?php foreach ($pager->getResults() as $i=>$<?php echo $this->getSingularName(); ?>): ?]
 [?php $exportedRow = array(
 <?php foreach ($this->configuration->getValue('export.display') as $name=> $field): ?>
-  str_replace("'", "\\'", <?php echo $this->getColumnGetter($field->getName(), true); ?>),
+  <?php echo $this->renderExportField($field) ?>,
 <?php endforeach; ?>
 );
 echo '"', implode('","', $exportedRow), '"', "\n";
