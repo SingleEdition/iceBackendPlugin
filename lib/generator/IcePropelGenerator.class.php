@@ -25,7 +25,7 @@ class IcePropelGenerator extends sfPropelGenerator
     }
     else return array();
   }
-  
+
   /**
    * Returns Text for a Export field.
    *
@@ -62,6 +62,6 @@ class IcePropelGenerator extends sfPropelGenerator
       $result = sprintf('(%s ? "yes" : "no")', $result);
     }
 
-    return sprintf("str_replace(\"'\", \"\\'\", %s)", $result);
+    return sprintf("str_replace(\"'\", \"\\\'\", %s)", $result);
   }
 }
