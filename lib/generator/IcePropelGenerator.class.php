@@ -25,8 +25,9 @@ class IcePropelGenerator extends sfPropelGenerator
     }
     else return array();
   }
+  
   /**
-   * Returns Text  for a Export field.
+   * Returns Text for a Export field.
    *
    * @param sfModelGeneratorConfigurationField $field The field
    *
