@@ -62,6 +62,6 @@ class IcePropelGenerator extends sfPropelGenerator
       $result = sprintf('(%s ? "yes" : "no")', $result);
     }
 
-    return sprintf("str_replace(\"'\", \"\\\'\", %s)", $result);
+    return $result;
   }
 }
