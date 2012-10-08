@@ -13,7 +13,7 @@
       </a>
       <ul class="nav">
         <li><a href="<?php echo url_for_frontend('homepage', array()) ?>">
-            <i class="icon-globe icon-white"></i>&nbsp;Frontend</a>
+            <i class="icon-globe icon-white"></i>&nbsp;Go to Site</a>
         </li>
         <li><a href="/"><i class="icon-home icon-white"></i>&nbsp;Dashboard</a></li>
         <?php foreach ($categories as $name => $category): ?>
