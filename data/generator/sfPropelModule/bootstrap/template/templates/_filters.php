@@ -2,7 +2,7 @@
 [?php use_javascripts_for_form($form) ?]
 
 <a name="filters"></a>
-<div class="sf_admin_filter accordion-body in collapse" style="height: auto;">
+<div class="sf_admin_filter" style="height: auto;">
   [?php if ($form->hasGlobalErrors()): ?]
   <div class="alert alert-block error">
     <p><strong>Oh snap! You got an error!</strong> Change this and that and <a href="#">try again</a>.</p>
