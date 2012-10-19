@@ -15,7 +15,9 @@
         <li><a href="<?php echo url_for_frontend('homepage', array()) ?>">
             <i class="icon-globe icon-white"></i>&nbsp;Go to Site</a>
         </li>
-        <li><a href="/"><i class="icon-home icon-white"></i>&nbsp;Dashboard</a></li>
+        <li><a href="<?php echo url_for('homepage') ?>">
+          <i class="icon-home icon-white"></i>&nbsp;Dashboard</a>
+        </li>
         <?php foreach ($categories as $name => $category): ?>
         <?php if (iceBackendModule::hasPermission($category, $sf_user)): ?>
           <?php if (iceBackendModule::hasItemsMenu($category['items'])): ?>
