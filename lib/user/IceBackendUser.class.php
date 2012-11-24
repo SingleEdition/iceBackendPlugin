@@ -34,7 +34,7 @@ class IceBackendUser extends sfGuardSecurityUser
    */
   public function getName()
   {
-    return $this->getUsername();
+    return $this->getGuardUser() ? $this->getUsername() : null;
   }
 
   /**
