@@ -35,16 +35,18 @@
           <?php endif; ?>
         <?php endforeach; ?>
       </ul>
-      <ul class="nav pull-right">
-        <li>
-          <?php
-            echo link_to(
-            '<i class="icon-lock icon-white"></i>&nbsp;'.__('Logout'), '@ice_backend_signout',
-            array('onclick' => 'return confirm("You will be also logged out of your webmail. Are you sure you want to continue?")')
-            );
-            ?>
-        </li>
-      </ul>
+        <?php if ($sf_user->isAuthenticated()) : ?>
+          <ul class="nav pull-right">
+            <li>
+              <?php
+                echo link_to(
+                '<i class="icon-lock icon-white"></i>&nbsp;'.__('Logout'), '@ice_backend_signout'
+             //   array('onclick' => 'return confirm("You will be also logged out of your webmail. Are you sure you want to continue?")')
+                );
+                ?>
+            </li>
+          </ul>
+        <?php endif; ?>
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
       <div style="float: left">
         <div class="icon">
           <a href="<?php echo url_for($item['url']) ?>" title="<?= __($item['name']); ?>">
-            <?php echo ice_cdn_image_tag($item['image'], 'backend', array('alt' => __($item['name'], array(), 'ice_backend_plugin'))); ?>
+            <?php echo ice_cdn_image_tag($item['image'], sfConfig::get('app_ice_assets_subdomain'), array('alt' => __($item['name'], array(), 'ice_backend_plugin'))); ?>
             <span><?= __($item['name'], array(), 'ice_backend_plugin'); ?></span>
           </a>
         </div>
