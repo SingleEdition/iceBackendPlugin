@@ -48,7 +48,7 @@ abstract class IceModelGeneratorHelper extends sfModelGeneratorHelper
 
   public function linkToSave($object, $params)
   {
-    return '<li class="sf_admin_action_save"><input type="submit" class="btn btn-success" value="'.__($params['label'], array(), 'sf_admin').'" /></li>';
+    return '<li class="sf_admin_action_save"><input type="submit" class="btn btn-success flat" value="'.__($params['label'], array(), 'sf_admin').'" /></li>';
   }
 
   public function linkToSaveAndAdd($object, $params)
@@ -58,7 +58,7 @@ abstract class IceModelGeneratorHelper extends sfModelGeneratorHelper
       return '';
     }
 
-    return '<li class="sf_admin_action_save_and_add"><input type="submit" class="btn" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" /></li>';
+    return '<li class="sf_admin_action_save_and_add"><input type="submit" class="btn flat" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" /></li>';
   }
 
   public function linkToAction($actionName, $params, $pk_link = false)

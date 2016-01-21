@@ -1,0 +1,14 @@
+generator:
+  class: IcePropelGenerator
+  param:
+##CONFIG##
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
+      export:  ~
